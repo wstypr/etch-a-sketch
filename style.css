@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.pixel {
+  background-color: gold;
+  aspect-ratio: 1/1;
+}
+
+.pixel:hover {
+  background-color: azure;
+}
+
+.pixel-container {
+  display: flex;
+  flex-wrap: wrap;
+}
