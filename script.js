@@ -1,5 +1,5 @@
 const container = document.querySelector(".pixel-container");
-const containerWidth = 600;
+const containerWidth = 720;
 const pixelSizeBtn = document.querySelector("#pixelSizeBtn");
 const pixelSizeMsg = document.querySelector("#pixelSizeMsg");
 let size = 30;
@@ -10,7 +10,6 @@ createPixel(size);
 // pixel handling
 function createPixel(pixelSize) {
   let pixelWidth = containerWidth / pixelSize;
-  pixelSizeMsg.textContent = pixelSize;
   for (let i = 0; i < pixelSize * pixelSize; i++) {
     // create pixels
     let pixel = document.createElement("div");
@@ -40,6 +39,7 @@ function createPixel(pixelSize) {
       pixel.style.filter = `brightness(${brightness}%)`;
     });
   }
+  pixelSizeMsg.textContent = pixelSize;
 }
 
 // set pixel size handling
@@ -54,10 +54,9 @@ function getSize() {
   while (true) {
     try {
       let size = parseInt(window.prompt("pixel Size: "));
-      console.log(size);
       if (isNaN(size)) throw "Invalid input";
-      if ((size > 50) | (size < 1))
-        throw "Too big, wind down a bit, make it less than 50 and more than 0";
+      if ((size > 100) | (size < 1))
+        throw "Too big, wind down a bit, make it less or equal than 100 and more than 0";
       return size;
     } catch (error) {
       window.alert(error);
